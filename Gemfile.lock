@@ -1,12 +1,14 @@
 PATH
   remote: .
   specs:
-    postlicensed (0.1.0)
+    postlicensed (0.1.1)
+      csv (~> 3.3)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    csv (3.3.0)
     diff-lcs (1.5.1)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
