@@ -1,0 +1,13 @@
+---
+name: example
+version: 2.0.0
+type: npm
+license: other
+licenses:
+- sources: LICENSE
+  text: |
+    Copyright (c) 2024 Example
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+notices: []

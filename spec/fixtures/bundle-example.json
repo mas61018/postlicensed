@@ -1,0 +1,21 @@
+{
+  "packages": [
+    {
+      "name": "@scope/foo",
+      "version": "1.0.0",
+      "license": {
+        "type": "mit",
+        "digest": null
+      }
+    },
+    {
+      "name": "bar",
+      "version": "2.0.0",
+      "license": {
+        "type": "mit",
+        "digest": null
+      }
+    }
+  ],
+  "licenseTexts": {}
+}
