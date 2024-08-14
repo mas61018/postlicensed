@@ -219,5 +219,55 @@ RSpec.describe Postlicensed::Format::LicenseTextFormatter do
         expect(license_text_formatter.format(original_text)).to eq expected_text
       end
     end
+
+    context "when the license text includes blank lines at the beginning or end" do
+      let(:original_text) do
+        <<~ORIGINAL_TEXT
+
+          Copyright (c) 2024 Example
+
+          Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+
+        ORIGINAL_TEXT
+      end
+      let(:expected_text) do
+        <<~EXPECTED_TEXT
+          Copyright (c) 2024 Example
+
+          Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+        EXPECTED_TEXT
+      end
+
+      it "deletes the blank lines" do
+        expect(license_text_formatter.format(original_text)).to eq expected_text
+      end
+    end
+
+    context "when whitespace appears before a line break" do
+      let(:original_text) do
+        [
+          "line1\n",
+          "\n",
+          "line2 \n",
+          " \n",
+          "line3  \n"
+        ].join
+      end
+      let(:expected_text) do
+        # rubocop:disable Style/WordArray
+        [
+          "line1\n",
+          "\n",
+          "line2\n",
+          "\n",
+          "line3\n"
+        ].join
+        # rubocop:enable Style/WordArray
+      end
+
+      it "deletes the whitespace" do
+        expect(license_text_formatter.format(original_text)).to eq expected_text
+      end
+    end
   end
 end

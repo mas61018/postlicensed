@@ -1,11 +1,21 @@
 # frozen_string_literal: true
 
+module StringExtension
+  refine String do
+    def blank?
+      strip.empty?
+    end
+  end
+end
+
+using StringExtension
+
 module Postlicensed
   class Format
     class LicenseTextFormatter
       def format(text)
-        text.gsub(/ +(\R)/, "\\1")
-            .lines("")
+        text = clean_whitespace(text)
+        text.lines("")
             .map { |paragraph| delete_manual_line_breaks(paragraph) }
             .join
       end
@@ -18,6 +28,14 @@ module Postlicensed
                        :PRINT_WIDTH
 
       private
+
+      def clean_whitespace(text)
+        text.gsub(/(^|(?<=\S))\s*?(\R)/, "\\2")
+            .lines
+            .drop_while(&:blank?)
+            .reverse.drop_while(&:blank?).reverse
+            .join
+      end
 
       def copyright?(line)
         /Copyright (©|\(c\)|\d{4})/i.match?(line) || /All rights reserved/i.match?(line)
@@ -49,8 +67,11 @@ module Postlicensed
 
       def concat(lines)
         lines.reduce do |result, line|
-          line.lstrip!
-          result.rstrip + (line.empty? ? "\n\n" : " #{line}")
+          if line.blank?
+            result + line
+          else
+            "#{result.rstrip} #{line.lstrip}"
+          end
         end
       end
 
