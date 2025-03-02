@@ -19,10 +19,8 @@ module Postlicensed
 
       #: (?Array[String]) -> void
       def run(argv = ARGV)
-        parser = initialize_option_parser
-        params = add_diff_params_handler(parser)
-        parser.parse(argv)
         bundled_file_path = argv[1]
+        parser, params = parse_arguments(argv)
         return if bundled_file_path && main(bundled_file_path, params)
 
         puts parser.help
@@ -31,13 +29,15 @@ module Postlicensed
 
       private
 
-      #: (OptionParser) -> Hash[Symbol, untyped]
-      def add_diff_params_handler(parser) # rubocop:disable Metrics/MethodLength
+      #: (Array[String]) -> [OptionParser, Hash[Symbol, untyped]]
+      def parse_arguments(argv)
         params = {
           license_checker: false,
           package_lock: false,
           package_lock_path: DEFAULT_PACKAGE_LOCK_PATH
         }
+
+        parser = initialize_option_parser
         parser.banner = make_usage_banner(USAGE)
         add_options(parser) do
           parser.on("--license-checker") { params[:license_checker] = true }
@@ -47,7 +47,9 @@ module Postlicensed
             params[:package_lock_path] = path if path
           end
         end
-        params
+        parser.parse(argv)
+
+        [parser, params]
       end
 
       #: (?String?) -> Array[untyped]

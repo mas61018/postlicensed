@@ -12,8 +12,8 @@ module Postlicensed
 
       private
 
-      # : (OptionParser) -> Hash[Symbol, untyped]
-      def add_bundle_params_handler: (OptionParser) -> Hash[Symbol, untyped]
+      # : (Array[String]) -> Hash[Symbol, untyped]
+      def parse_arguments: (Array[String]) -> Hash[Symbol, untyped]
     end
   end
 end
