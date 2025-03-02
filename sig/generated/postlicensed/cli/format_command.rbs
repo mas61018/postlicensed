@@ -1,0 +1,19 @@
+# Generated from lib/postlicensed/cli/format_command.rb with RBS::Inline
+
+module Postlicensed
+  class CLI
+    class FormatCommand
+      include Helper
+
+      USAGE: untyped
+
+      # : (?Array[String]) -> void
+      def run: (?Array[String]) -> void
+
+      private
+
+      # : (OptionParser) -> Hash[Symbol, untyped]
+      def add_format_params_handler: (OptionParser) -> Hash[Symbol, untyped]
+    end
+  end
+end

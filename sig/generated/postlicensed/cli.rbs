@@ -1,0 +1,12 @@
+# Generated from lib/postlicensed/cli.rb with RBS::Inline
+
+module Postlicensed
+  class CLI
+    include Helper
+
+    COMMANDS: untyped
+
+    # : (?Array[String]) -> void
+    def run: (?Array[String]) -> void
+  end
+end

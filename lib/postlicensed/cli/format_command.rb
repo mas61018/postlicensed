@@ -11,6 +11,7 @@ module Postlicensed
 
       USAGE = "#{PROGRAM_NAME} format [options]".freeze
 
+      #: (?Array[String]) -> void
       def run(argv = ARGV)
         parser = initialize_option_parser
         params = add_format_params_handler(parser)
@@ -21,6 +22,7 @@ module Postlicensed
 
       private
 
+      #: (OptionParser) -> Hash[Symbol, untyped]
       def add_format_params_handler(parser)
         params = {
           licensed_cache_dir: DEFAULT_LICENSED_CACHE_DIR,

@@ -1,0 +1,27 @@
+# Generated from lib/postlicensed/cli/diff_command.rb with RBS::Inline
+
+module Postlicensed
+  class CLI
+    class DiffCommand
+      include Helper
+
+      DEFAULT_PACKAGE_LOCK_PATH: ::String
+
+      USAGE: untyped
+
+      # : (?Array[String]) -> void
+      def run: (?Array[String]) -> void
+
+      private
+
+      # : (OptionParser) -> Hash[Symbol, untyped]
+      def add_diff_params_handler: (OptionParser) -> Hash[Symbol, untyped]
+
+      # : (?String?) -> Array[untyped]
+      def load_licensed_ignore: (?String?) -> Array[untyped]
+
+      # : (String, Hash[Symbol, untyped]) -> String?
+      def main: (String, Hash[Symbol, untyped]) -> String?
+    end
+  end
+end

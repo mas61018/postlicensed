@@ -11,6 +11,7 @@ module Postlicensed
 
       USAGE = "#{PROGRAM_NAME} bundle [options]".freeze
 
+      #: (?Array[String]) -> void
       def run(argv = ARGV)
         parser = initialize_option_parser
         params = add_bundle_params_handler(parser)
@@ -21,6 +22,7 @@ module Postlicensed
 
       private
 
+      #: (OptionParser) -> Hash[Symbol, untyped]
       def add_bundle_params_handler(parser)
         params = { licensed_cache_dir: DEFAULT_LICENSED_CACHE_DIR }
         parser.banner = make_usage_banner(USAGE)

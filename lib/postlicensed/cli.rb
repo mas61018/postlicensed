@@ -15,6 +15,7 @@ module Postlicensed
       "format" => FormatCommand
     }.freeze
 
+    #: (?Array[String]) -> void
     def run(argv = ARGV)
       command = COMMANDS[argv.first]
 

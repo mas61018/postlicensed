@@ -1,0 +1,12 @@
+# Generated from lib/postlicensed/package_comparator.rb with RBS::Inline
+
+module Postlicensed
+  class PackageComparator
+    type package = { "name" => String, "version" => String }
+
+    # : (package, package) -> Integer
+    def compare_packages: (package, package) -> Integer
+
+    def to_proc: () -> untyped
+  end
+end

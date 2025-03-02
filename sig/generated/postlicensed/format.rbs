@@ -1,0 +1,20 @@
+# Generated from lib/postlicensed/format.rb with RBS::Inline
+
+module Postlicensed
+  class Format
+    @license_text_formatter: LicenseTextFormatter
+
+    def initialize: () -> untyped
+
+    # : (String, ?update: bool) -> Hash[String, String]
+    def run: (String, ?update: bool) -> Hash[String, String]
+
+    private
+
+    # : (String) -> Hash[String, untyped]
+    def load_yamls: (String) -> Hash[String, untyped]
+
+    # : (untyped) -> untyped
+    def format_yaml_data: (untyped) -> untyped
+  end
+end

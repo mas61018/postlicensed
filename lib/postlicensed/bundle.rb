@@ -7,6 +7,7 @@ require_relative "package_comparator"
 
 module Postlicensed
   class Bundle
+    #: (String, ?String?) -> String
     def run(licensed_cache_dir, output_file_path = nil)
       packages = load_yamls(licensed_cache_dir).map { format(_1) }
       license_texts = normalize!(packages)
@@ -18,11 +19,13 @@ module Postlicensed
 
     private
 
+    #: (String) -> Array[untyped]
     def load_yamls(dir)
       Dir.glob(File.join(dir, "**", "*.yml"))
          .map { YAML.load_file(_1) }
     end
 
+    #: (untyped) -> untyped
     def format(yaml_data)
       license_type = yaml_data["license"]
       licenses = yaml_data["licenses"]
@@ -32,8 +35,9 @@ module Postlicensed
                                        :temporary_license_text_key => license_text } })
     end
 
+    #: (Array[untyped]) -> Hash[String, String]
     def normalize!(packages)
-      license_texts = {}
+      license_texts = {} #: Hash[String, String]
 
       packages.each do |package|
         license = package["license"]

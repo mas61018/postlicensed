@@ -2,12 +2,17 @@
 
 module Postlicensed
   class PackageComparator
+    # @rbs!
+    #   type package = { "name" => String, "version" => String }
+
+    #: (package, package) -> Integer
     def compare_packages(package1, package2)
       value = package1["name"] <=> package2["name"]
       return value if value != 0
 
-      version1, version2 = [package1, package2].map { Gem::Version.new(_1["version"]) }
-      version1 <=> version2
+      version1 = Gem::Version.new(package1["version"])
+      version2 = Gem::Version.new(package2["version"])
+      (version1 <=> version2) || 0
     end
 
     def to_proc

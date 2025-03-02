@@ -16,6 +16,7 @@ module Postlicensed
 
       private
 
+      #: () -> OptionParser
       def initialize_option_parser
         parser = OptionParser.new
         parser.program_name = PROGRAM_NAME
@@ -23,6 +24,7 @@ module Postlicensed
         parser
       end
 
+      #: (Array[String]) -> String
       def make_usage_banner(examples)
         example1, *rest = Array(examples).flatten
         label = "Usage: "
@@ -32,6 +34,7 @@ module Postlicensed
         ].join("\n")
       end
 
+      #: (OptionParser) { -> void } -> void
       def add_options(parser)
         parser.separator ""
         parser.separator "Options:"

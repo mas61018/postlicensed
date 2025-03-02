@@ -1,0 +1,19 @@
+# Generated from lib/postlicensed/bundle.rb with RBS::Inline
+
+module Postlicensed
+  class Bundle
+    # : (String, ?String?) -> String
+    def run: (String, ?String?) -> String
+
+    private
+
+    # : (String) -> Array[untyped]
+    def load_yamls: (String) -> Array[untyped]
+
+    # : (untyped) -> untyped
+    def format: (untyped) -> untyped
+
+    # : (Array[untyped]) -> Hash[String, String]
+    def normalize!: (Array[untyped]) -> Hash[String, String]
+  end
+end

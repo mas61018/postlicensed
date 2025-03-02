@@ -1,0 +1,6 @@
+# Generated from lib/postlicensed.rb with RBS::Inline
+
+module Postlicensed
+  class Error < StandardError
+  end
+end

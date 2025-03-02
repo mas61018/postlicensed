@@ -14,3 +14,5 @@ jobs:
         gem install bundler -v 2.2.33
         bundle install
         bundle exec rake
+    - run: bundle exec rbs-inline --opt-out --output lib && git diff --exit-code -- ':!Gemfile.lock'
+    - run: bundle exec steep check

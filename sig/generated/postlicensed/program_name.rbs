@@ -1,0 +1,5 @@
+# Generated from lib/postlicensed/program_name.rb with RBS::Inline
+
+module Postlicensed
+  PROGRAM_NAME: ::String
+end

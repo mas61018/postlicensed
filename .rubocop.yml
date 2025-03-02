@@ -1,6 +1,12 @@
 AllCops:
   NewCops: enable
 
+Layout/LeadingCommentSpace:
+  AllowRBSInlineAnnotation: true
+
+Layout/LineLength:
+  Max: 120
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
@@ -15,6 +21,3 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
-
-Layout/LineLength:
-  Max: 120

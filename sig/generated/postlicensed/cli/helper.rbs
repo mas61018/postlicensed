@@ -1,0 +1,22 @@
+# Generated from lib/postlicensed/cli/helper.rb with RBS::Inline
+
+module Postlicensed
+  class CLI
+    module Helper
+      DEFAULT_LICENSED_CACHE_DIR: ::String
+
+      DEFAULT_LICENSED_CONFIG_PATH: ::String
+
+      private
+
+      # : () -> OptionParser
+      def initialize_option_parser: () -> OptionParser
+
+      # : (Array[String]) -> String
+      def make_usage_banner: (Array[String]) -> String
+
+      # : (OptionParser) { -> void } -> void
+      def add_options: (OptionParser) { () -> void } -> void
+    end
+  end
+end

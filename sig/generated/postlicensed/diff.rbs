@@ -1,0 +1,34 @@
+# Generated from lib/postlicensed/diff.rb with RBS::Inline
+
+module Postlicensed
+  class Diff
+    # : (String, ?Array[String]) -> String
+    def compare_with_license_checker_result: (String, ?Array[String]) -> String
+
+    # : (String, String, ?Array[String]) -> String
+    def compare_with_package_lock: (String, String, ?Array[String]) -> String
+
+    private
+
+    # : (Array[Hash[untyped, untyped]]) -> String
+    def generate_csv: (Array[Hash[untyped, untyped]]) -> String
+
+    # : (String, ?include_license: bool) -> String
+    def format_bundled_file: (String, ?include_license: bool) -> String
+
+    # : () -> String
+    def execute_license_checker: () -> String
+
+    # : (Array[String]) -> String
+    def format_license_checker_result: (Array[String]) -> String
+
+    # : (String, Array[String]) -> String
+    def format_package_lock: (String, Array[String]) -> String
+
+    # : (String) -> String
+    def write_to_tempfile: (String) -> String
+
+    # : (String, String) -> String
+    def diff: (String, String) -> String
+  end
+end

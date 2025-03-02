@@ -17,6 +17,7 @@ module Postlicensed
         "#{PROGRAM_NAME} diff <bundled-file> --package-lock [path] [options]"
       ].freeze
 
+      #: (?Array[String]) -> void
       def run(argv = ARGV)
         parser = initialize_option_parser
         params = add_diff_params_handler(parser)
@@ -30,6 +31,7 @@ module Postlicensed
 
       private
 
+      #: (OptionParser) -> Hash[Symbol, untyped]
       def add_diff_params_handler(parser) # rubocop:disable Metrics/MethodLength
         params = {
           license_checker: false,
@@ -48,6 +50,7 @@ module Postlicensed
         params
       end
 
+      #: (?String?) -> Array[untyped]
       def load_licensed_ignore(licensed_config_path = nil)
         if licensed_config_path.nil?
           return [] unless File.exist?(DEFAULT_LICENSED_CONFIG_PATH)
@@ -62,6 +65,7 @@ module Postlicensed
         ignored.values.flatten.compact
       end
 
+      #: (String, Hash[Symbol, untyped]) -> String?
       def main(bundled_file_path, params)
         licensed_ignore = load_licensed_ignore(params[:licensed_config_path])
         result = if params[:license_checker]

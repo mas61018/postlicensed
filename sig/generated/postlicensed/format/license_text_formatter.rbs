@@ -1,0 +1,46 @@
+# Generated from lib/postlicensed/format/license_text_formatter.rb with RBS::Inline
+
+module Postlicensed
+  class Format
+    class LicenseTextFormatter
+      # : (String) -> String
+      def format: (String) -> String
+
+      DENSITY_THRESHOLD: ::Float
+
+      PRINT_WIDTH: ::Integer
+
+      private
+
+      # : (String) -> String
+      def clean_whitespace: (String) -> String
+
+      # : (String) -> bool
+      def blank?: (String) -> bool
+
+      # : (String) -> bool
+      def copyright?: (String) -> bool
+
+      # : (String) -> bool
+      def heading?: (String) -> bool
+
+      # : (String) -> bool
+      def quote?: (String) -> bool
+
+      # : (String) -> bool
+      def preserve?: (String) -> bool
+
+      # : (String) -> bool
+      def list_item?: (String) -> bool
+
+      # : (Array[String]) -> bool
+      def sentence?: (Array[String]) -> bool
+
+      # : (Array[String]) -> String
+      def concat: (Array[String]) -> String
+
+      # : (String) -> String
+      def delete_manual_line_breaks: (String) -> String
+    end
+  end
+end
